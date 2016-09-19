@@ -36,8 +36,6 @@
 <h3>
 <a id="ad-desc-import" class="anchor" href="#ad-desc-import" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ActiveDirectory Computer Description Import</h3>
 
-<p>
-
 ```powershell
   Import-module ActiveDirectory
   Import-CSV "C:\Scripts\Computers.csv" | % {
@@ -46,8 +44,6 @@
   Set-ADComputer $Computer -Description $Desc
   }
 ```
-
-</p>
 
       </section>
     </div>
