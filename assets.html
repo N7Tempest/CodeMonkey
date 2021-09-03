@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+		<title>Codemonkey by N7Tempest</title>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h1>Codemonkey</h1>
+				<h2>Collection of code snippets</h2>
+				<section id="downloads">
+<!--					<a href="https://github.com/N7Tempest/CodeMonkey/zipball/master" class="btn">Download as .zip</a>
+					<a href="https://github.com/N7Tempest/CodeMonkey/tarball/master" class="btn">Download as .tar.gz</a>
+					<a href="https://github.com/N7Tempest/CodeMonkey" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+-->		  
+				</section>
+			</div>
+		</header>
+		<div class="container">
+			<section id="main_content">
+				<h3><a id="welcome-to-codemonkey" class="anchor" href="#welcome-to-codemonkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to CodeMonkey.</h3>
+				<table><a id="asset-table" class="anchor" href="#asset-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a></table>
+				<table></table>
+			</section>
+		</div>
+	</body>
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/papaparse.js"></script>
+	<script>
+		function arrayToTable(tableData) {
+			var table = $('<table></table>');
+			$(tableData).each(function (i, rowData) {
+				var row = $('<tr></tr>');
+				$(rowData).each(function (j, cellData) {
+					row.append($('<td>'+cellData+'</td>'));
+				});
+				table.append(row);
+			});
+			return table;
+		}
+
+		$.ajax({
+			type: "GET",
+			url: "assets.csv",
+			success: function (data) {
+				$('body').append(arrayToTable(Papa.parse(data).data));
+			}
+		});
+	</script>
+</html>
