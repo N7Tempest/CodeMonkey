@@ -8,25 +8,53 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 		<title>CodeMonkey by N7Tempest</title>
 		<style>
-			table {
+			#myTable table {
 				border: 1px solid black;
 				border-radius: 10px;
 				width: 50%;
 			}
-			table.center {
+			#myTable table.center {
 				margin-left: auto; 
 				margin-right: auto;
 			}
-			th, td {
+			#myTable th, #myTable td {
 				text-align: center;
 				vertical-align: middle;
 				padding: 4px;
 				width: 25%;
 			}
-			tr:nth-child(even) {
+			#myTable tr:nth-child(even) {
 				background-color: rgba(92, 92, 92, 0.4);
 			}
-			tr:hover {background-color: rgba(0, 120, 0, 0.6);}
+			#myTable tr:hover {background-color: rgba(0, 120, 0, 0.6);}
+			#myBtn {
+				display: none; /* Hidden by default */
+				position: fixed; /* Fixed/sticky position */
+				bottom: 20px; /* Place the button at the bottom of the page */
+				right: 30px; /* Place the button 30px from the right */
+				z-index: 99; /* Make sure it does not overlap */
+				border: none; /* Remove borders */
+				outline: none; /* Remove outline */
+				background-color: red; /* Set a background color */
+				color: white; /* Text color */
+				cursor: pointer; /* Add a mouse pointer on hover */
+				padding: 15px; /* Some padding */
+				border-radius: 10px; /* Rounded corners */
+				font-size: 18px; /* Increase font size */
+			}
+			#myBtn:hover {
+				background-color: #555; /* Add a dark-grey background on hover */
+			}
+			#myInput {
+				background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+				background-position: 10px 12px; /* Position the search icon */
+				background-repeat: no-repeat; /* Do not repeat the icon image */
+				width: 100%; /* Full-width */
+				font-size: 16px; /* Increase font-size */
+				padding: 12px 20px 12px 40px; /* Add some padding */
+				border: 1px solid #ddd; /* Add a grey border */
+				margin-bottom: 12px; /* Add some space below the input */
+			}
 		</style>
 	</head>
 	<body>
@@ -47,6 +75,8 @@
 			<section id="main_content">
 				<h3><a id="welcome-to-codemonkey" class="anchor" href="#welcome-to-codemonkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to CodeMonkey.</h3>
 				<a id="asset-table" class="anchor" href="#asset-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+				<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for asset number..">
+				<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 			</section>
 		</div>
 	</body>
@@ -54,7 +84,7 @@
 	<script src="javascripts/papaparse.js"></script>
 	<script>
 		function arrayToTable(tableData) {
-			var table = $('<table class="center"></table>');
+			var table = $('<table id="myTable" class="center"></table>');
 			$(tableData).each(function (i, rowData) {
 				var row = $('<tr></tr>');
 				$(rowData).each(function (j, cellData) {
@@ -72,5 +102,45 @@
 				$('body').append(arrayToTable(Papa.parse(data).data));
 			}
 		});
+	</script>
+	<script>
+		function searchFunction() {
+		  // Declare variables
+		  var searchinput, searchfilter, searchtable, searchtr, searchtd, searchi, searchtxtValue;
+		  searchinput = document.getElementById("myInput");
+		  searchfilter = input.value.toUpperCase();
+		  searchtable = document.getElementById("myTable");
+		  searchtr = searchtable.getElementsByTagName("tr");
+
+		  // Loop through all table rows, and hide those who don't match the search query
+		  for (searchi = 0; searchi < searchtr.length; searchi++) {
+			searchtd = searchtr[searchi].getElementsByTagName("td")[1];
+			if (searchtd) {
+			  searchtxtValue = searchtd.textContent || searchtd.innerText;
+			  if (searchtxtValue.toUpperCase().indexOf(searchfilter) > -1) {
+				searchtr[searchi].style.display = "";
+			  } else {
+				searchtr[searchi].style.display = "none";
+			  }
+			}
+		  }
+		}
+</script>
+	<script>
+		mybutton = document.getElementById("myBtn");
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+		  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+			mybutton.style.display = "block";
+		  } else {
+			mybutton.style.display = "none";
+		  }
+		}
+
+		function topFunction() {
+		  document.body.scrollTop = 0; // For Safari
+		  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+		}
 	</script>
 </html>
