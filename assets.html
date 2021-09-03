@@ -24,8 +24,6 @@
 		<div class="container">
 			<section id="main_content">
 				<h3><a id="welcome-to-codemonkey" class="anchor" href="#welcome-to-codemonkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to CodeMonkey.</h3>
-				<table><a id="asset-table" class="anchor" href="#asset-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a></table>
-				<table></table>
 			</section>
 		</div>
 	</body>
@@ -33,11 +31,11 @@
 	<script src="javascripts/papaparse.js"></script>
 	<script>
 		function arrayToTable(tableData) {
-			var table = $('<table></table>');
+			var table = $('<table border cellpadding=3 width=570 align=center><a id="asset-table" class="anchor" href="#asset-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a></table>');
 			$(tableData).each(function (i, rowData) {
 				var row = $('<tr></tr>');
 				$(rowData).each(function (j, cellData) {
-					row.append($('<td>'+cellData+'</td>'));
+					row.append($('<td valign="top" width="25%">'+cellData+'</td>'));
 				});
 				table.append(row);
 			});
