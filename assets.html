@@ -104,28 +104,28 @@
 		});
 	</script>
 	<script>
-		function searchFunction() {
+		function myFunction() {
 		  // Declare variables
-		  var searchinput, searchfilter, searchtable, searchtr, searchtd, searchi, searchtxtValue;
-		  searchinput = document.getElementById("myInput");
-		  searchfilter = input.value.toUpperCase();
-		  searchtable = document.getElementById("myTable");
-		  searchtr = searchtable.getElementsByTagName("tr");
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
 
 		  // Loop through all table rows, and hide those who don't match the search query
-		  for (searchi = 0; searchi < searchtr.length; searchi++) {
-			searchtd = searchtr[searchi].getElementsByTagName("td")[1];
-			if (searchtd) {
-			  searchtxtValue = searchtd.textContent || searchtd.innerText;
-			  if (searchtxtValue.toUpperCase().indexOf(searchfilter) > -1) {
-				searchtr[searchi].style.display = "";
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+			  txtValue = td.textContent || td.innerText;
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
 			  } else {
-				searchtr[searchi].style.display = "none";
+				tr[i].style.display = "none";
 			  }
 			}
 		  }
 		}
-</script>
+	</script>
 	<script>
 		mybutton = document.getElementById("myBtn");
 		window.onscroll = function() {scrollFunction()};
