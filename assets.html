@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 		<title>CodeMonkey by N7Tempest</title>
 		<style>
-			#myTable table {
+			#myTable {
 				border: 1px solid black;
 				border-radius: 10px;
 				width: 50%;
@@ -143,7 +143,7 @@
 	<script>
 		function searchSerialFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myInput");
+		  input = document.getElementById("myInputSerial");
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("myTable");
 		  tr = table.getElementsByTagName("tr");
@@ -164,7 +164,7 @@
 	<script>
 		function searchAssetFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myInput");
+		  input = document.getElementById("myInputAsset");
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("myTable");
 		  tr = table.getElementsByTagName("tr");
@@ -185,7 +185,7 @@
 	<script>
 		function searchRoomFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myInput");
+		  input = document.getElementById("myInputRoom");
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("myTable");
 		  tr = table.getElementsByTagName("tr");
@@ -206,7 +206,7 @@
 	<script>
 		function searchIDFunction() {
 		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("myInput");
+		  input = document.getElementById("myInputID");
 		  filter = input.value.toUpperCase();
 		  table = document.getElementById("myTable");
 		  tr = table.getElementsByTagName("tr");
