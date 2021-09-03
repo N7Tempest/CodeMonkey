@@ -48,7 +48,7 @@
 	<script src="javascripts/papaparse.js"></script>
 	<script>
 		function arrayToTable(tableData) {
-			var table = $('<table style="width:100%"></table>');
+			var table = $('<table></table>');
 			$(tableData).each(function (i, rowData) {
 				var row = $('<tr></tr>');
 				$(rowData).each(function (j, cellData) {
