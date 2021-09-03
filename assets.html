@@ -17,6 +17,10 @@
 				margin-left: auto; 
 				margin-right: auto;
 			}
+			#searchTable.center {
+				margin-left: auto; 
+				margin-right: auto;
+			}
 			#myTable th, #myTable td {
 				text-align: center;
 				vertical-align: middle;
@@ -28,19 +32,6 @@
 			}
 			#myTable tr:hover {
 				background-color: rgba(0, 120, 0, 0.6);
-			}
-			#searchTable {
-				width: 100%;
-			}
-			#searchTable.center {
-				margin-left: auto; 
-				margin-right: auto;
-			}
-			#searchTable th, #myTable td {
-				text-align: center;
-				vertical-align: middle;
-				padding: 4px;
-				width: 100%;
 			}
 			#myBtn {
 				display: none; /* Hidden by default */
@@ -64,7 +55,7 @@
 				background-image: url('stylesheets/searchicon.png'); /* Add a search icon to input */
 				background-position: 10px 12px; /* Position the search icon */
 				background-repeat: no-repeat; /* Do not repeat the icon image */
-				width: 100%; /* Quarter-width */
+				width: 100%; /* Full-width */
 				font-size: 16px; /* Increase font-size */
 				padding: 12px 20px 12px 40px; /* Add some padding */
 				border: 1px solid #ddd; /* Add a grey border */
@@ -124,12 +115,12 @@
 			<section id="main_content">
 				<h3><a id="welcome-to-codemonkey" class="anchor" href="#welcome-to-codemonkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to CodeMonkey.</h3>
 				<a id="asset-table" class="anchor" href="#asset-table" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
-				<table id="searchTable" class="center">
+				<table id="searchTable" class="center" width="50%">
 					<tr>
-						<td><input type="text" id="myInputSerial" onkeyup="searchSerialFunction()" placeholder="Search for Serial.."></td>
-						<td><input type="text" id="myInputAsset" onkeyup="searchAssetFunction()" placeholder="Search for Asset.."></td>
-						<td><input type="text" id="myInputRoom" onkeyup="searchRoomFunction()" placeholder="Search for Room.."></td>
-						<td><input type="text" id="myInputID" onkeyup="searchIDFunction()" placeholder="Search for ID.."></td>
+						<td width="25%"><input type="text" id="myInputSerial" onkeyup="searchSerialFunction()" placeholder="Search for Serial.."></td>
+						<td width="25%"><input type="text" id="myInputAsset" onkeyup="searchAssetFunction()" placeholder="Search for Asset.."></td>
+						<td width="25%"><input type="text" id="myInputRoom" onkeyup="searchRoomFunction()" placeholder="Search for Room.."></td>
+						<td width="25%"><input type="text" id="myInputID" onkeyup="searchIDFunction()" placeholder="Search for ID.."></td>
 					</tr>
 				</table>
 				<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
